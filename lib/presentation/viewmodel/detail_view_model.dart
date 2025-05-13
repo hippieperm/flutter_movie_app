@@ -13,4 +13,16 @@ class DetailState {
 
   factory DetailState.initial() =>
       DetailState(movieDetail: null, isLoading: false, error: null);
+
+  DetailState copyWith({
+    MovieDetail? movieDetail,
+    bool? isLoading,
+    String? error,
+  }) {
+    return DetailState(
+      movieDetail: movieDetail ?? this.movieDetail,
+      isLoading: isLoading ?? this.isLoading,
+      error: error ?? this.error,
+    );
+  }
 }
