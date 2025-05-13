@@ -55,3 +55,15 @@ final fetchMovieDetailUseCaseProvider = Provider<FetchMovieDetailUseCase>((
   final repository = ref.watch(movieRepositoryProvider);
   return FetchMovieDetailUseCase(repository);
 });
+
+// View Models
+final homeViewModelProvider = StateNotifierProvider<HomeViewModel, HomeState>((
+  ref,
+) {
+  return HomeViewModel(
+    ref.watch(fetchNowPlayingMoviesUseCaseProvider),
+    ref.watch(fetchPopularMoviesUseCaseProvider),
+    ref.watch(fetchTopRatedMoviesUseCaseProvider),
+    ref.watch(fetchUpcomingMoviesUseCaseProvider),
+  );
+});
