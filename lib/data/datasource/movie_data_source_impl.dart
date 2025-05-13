@@ -58,9 +58,25 @@ class MovieDataSourceImpl implements MovieDataSource {
   }
 
   @override
-  Future<MovieResponseDto?> fetchPopularMovies() {
-    // TODO: implement fetchPopularMovies
-    throw UnimplementedError();
+  Future<MovieResponseDto?> fetchPopularMovies() async {
+    try {
+      final response = await _dio.get(
+        'movie/popular',
+        queryParameters: {'language': 'ko-KR', 'page': 1},
+      );
+
+      if (response.statusCode == 200 && response.data != null) {
+        return MovieResponseDto.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } on DioException catch (e) {
+      print('Error fetching popular movies: ${e.message}');
+      return null;
+    } catch (e) {
+      print('Unexpected error in fetchPopularMovies: $e');
+      return _createDummyMovieResponse();
+    }
   }
 
   @override
