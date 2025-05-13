@@ -13,8 +13,16 @@ class MovieSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sectionId =  title.replaceAll(' ', '_').toLowerCase;
+    final sectionId = title.replaceAll(' ', '_').toLowerCase;
 
-    return Container();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Text('data'),
+        )
+      ],
+    );
   }
 }
