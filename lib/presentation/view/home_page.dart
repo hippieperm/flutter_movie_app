@@ -21,13 +21,7 @@ class HomePage extends ConsumerWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (state.popularMovies != null &&
-                              state.popularMovies!.isNotEmpty)
-                            GestureDetector(
-                              onTap: () {},
-                            )
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
