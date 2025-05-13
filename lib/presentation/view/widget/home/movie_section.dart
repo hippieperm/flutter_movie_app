@@ -13,6 +13,8 @@ class MovieSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sectionId =  title.replaceAll(' ', '_').toLowerCase;
+
     return Container();
   }
 }
