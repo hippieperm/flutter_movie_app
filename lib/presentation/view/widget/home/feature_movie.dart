@@ -20,8 +20,14 @@ class FeatureMovie extends StatelessWidget {
         onTap: () {},
         child: Hero(
           tag: heroTag,
-          child: CachedNetworkImage(
-            imageUrl: movie.fullPosterPath,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: CachedNetworkImage(
+              imageUrl: movie.fullPosterPath,
+              height: 450,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),
