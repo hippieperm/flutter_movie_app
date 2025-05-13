@@ -25,4 +25,22 @@ class HomeState {
         isLoading: false,
         error: null,
       );
+
+  HomeState copyWith({
+    List<Movie>? nowPlayingMovies,
+    List<Movie>? popularMovies,
+    List<Movie>? topRatedMovies,
+    List<Movie>? upcomingMovies,
+    bool? isLoading,
+    String? error,
+  }) {
+    return HomeState(
+      nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
+      popularMovies: popularMovies ?? this.popularMovies,
+      topRatedMovies: topRatedMovies ?? this.topRatedMovies,
+      upcomingMovies: upcomingMovies ?? this.upcomingMovies,
+      isLoading: isLoading ?? this.isLoading,
+      error: error ?? this.error,
+    );
+  }
 }
