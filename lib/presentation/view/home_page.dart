@@ -21,7 +21,12 @@ class HomePage extends ConsumerWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [],
+                        children: [
+                          SizedBox(height: 20),
+
+                          if(state.popularMovies != null && state.popularMovies!.isNotEmpty)
+                          
+                        ],
                       ),
                     ),
                   ),
