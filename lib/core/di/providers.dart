@@ -3,6 +3,7 @@ import 'package:flutter_movie_app/data/datasource/movie_data_source.dart';
 import 'package:flutter_movie_app/data/datasource/movie_data_source_impl.dart';
 import 'package:flutter_movie_app/data/repository/movie_repository_impl.dart';
 import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
+import 'package:flutter_movie_app/domain/usecase/fetch_movie_detail_usecase.dart';
 import 'package:flutter_movie_app/domain/usecase/fetch_now_playing_movies_usecase.dart';
 import 'package:flutter_movie_app/domain/usecase/fetch_popular_movies_usecase.dart';
 import 'package:flutter_movie_app/domain/usecase/fetch_top_rated_movies_usecase.dart';
@@ -47,3 +48,10 @@ final fetchUpcomingMoviesUseCaseProvider = Provider<FetchUpcomingMoviesUseCase>(
     return FetchUpcomingMoviesUseCase(repository);
   },
 );
+
+final fetchMovieDetailUseCaseProvider = Provider<FetchMovieDetailUseCase>((
+  ref,
+) {
+  final repository = ref.watch(movieRepositoryProvider);
+  return FetchMovieDetailUseCase(repository);
+});
