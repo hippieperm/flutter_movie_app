@@ -20,6 +20,7 @@ class HomePage extends ConsumerWidget {
                         ref.read(homeViewModelProvider.notifier).refreshData(),
                     child: SingleChildScrollView(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           
                         ],
