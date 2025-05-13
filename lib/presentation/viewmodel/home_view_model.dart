@@ -16,4 +16,13 @@ class HomeState {
     required this.isLoading,
     required this.error,
   });
+
+  factory HomeState.initial() => HomeState(
+        nowPlayingMovies: null,
+        popularMovies: null,
+        topRatedMovies: null,
+        upcomingMovies: null,
+        isLoading: false,
+        error: null,
+      );
 }
