@@ -101,8 +101,21 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<List<Movie>?> fetchUpcomingMovies() {
-    // TODO: implement fetchUpcomingMovies
-    throw UnimplementedError();
+  Future<List<Movie>?> fetchUpcomingMovies() async {
+    final response = await _dataSource.fetchUpcomingMovies();
+    if (response == null) return null;
+
+    return response.results
+        .map(
+          (result) => Movie(
+            id: result.id,
+            posterPath: result.posterPath,
+            title: result.title,
+            voteAverage: result.voteAverage,
+            releaseDate: result.releaseDate,
+            overview: result.overview,
+          ),
+        )
+        .toList();
   }
 }
