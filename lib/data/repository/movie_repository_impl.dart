@@ -82,9 +82,22 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<List<Movie>?> fetchTopRatedMovies() {
-    // TODO: implement fetchTopRatedMovies
-    throw UnimplementedError();
+  Future<List<Movie>?> fetchTopRatedMovies() async {
+    final response = await _dataSource.fetchTopRatedMovies();
+    if (response == null) return null;
+
+    return response.results
+        .map(
+          (result) => Movie(
+            id: result.id,
+            posterPath: result.posterPath,
+            title: result.title,
+            voteAverage: result.voteAverage,
+            releaseDate: result.releaseDate,
+            overview: result.overview,
+          ),
+        )
+        .toList();
   }
 
   @override
