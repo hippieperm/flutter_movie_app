@@ -10,7 +10,19 @@ class HomePage extends ConsumerWidget {
     final state = ref.watch(homeViewModelProvider);
 
     return Scaffold(
-      body: SafeArea(child: child),
+      body: SafeArea(
+        child: state.isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : state.error != null
+                ? Center(child: Text('Error: ${state.error}'))
+                : RefreshIndicator(
+                    onRefresh: () =>
+                        ref.read(homeViewModelProvider.notifier).refreshData(),
+                    child: ListView(
+                      children: [],
+                    ),
+                  ),
+      ),
     );
   }
 }
