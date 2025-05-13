@@ -85,4 +85,9 @@ class HomeViewModel extends StateNotifier<HomeState> {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
+
+  Future<void> refreshData() async {
+    state = state.copyWith(isLoading: true);
+    await fetchAllMovies();
+  }
 }
