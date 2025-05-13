@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/core/di/providers.dart';
+import 'package:flutter_movie_app/presentation/view/widget/home/feature_movie.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
@@ -23,9 +24,10 @@ class HomePage extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 20),
-
-                          if(state.popularMovies != null && state.popularMovies!.isNotEmpty)
-                          
+                          if (state.popularMovies != null &&
+                              state.popularMovies!.isNotEmpty)
+                            FeatureMovie(movie: state.popularMovies!.first),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
