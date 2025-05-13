@@ -10,4 +10,7 @@ class DetailState {
     this.isLoading = false,
     this.error,
   });
+
+  factory DetailState.initial() =>
+      DetailState(movieDetail: null, isLoading: false, error: null);
 }
