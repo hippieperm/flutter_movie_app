@@ -32,6 +32,13 @@ class FeatureMovie extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
             ),
+            errorWidget: (context, url, error) => Container(
+              height: 450,
+              color: Colors.grey.shade800,
+              child: const Center(
+                child: Icon(Icons.error),
+              ),
+            ),
           ),
         ),
       ),
