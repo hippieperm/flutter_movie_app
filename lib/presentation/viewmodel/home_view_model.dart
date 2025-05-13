@@ -64,4 +64,25 @@ class HomeViewModel extends StateNotifier<HomeState> {
   ) : super(HomeState.initial()) {
     fetchAllMovies();
   }
+
+  Future<void> fetchAllMovies() async {
+    state = state.copyWith(isLoading: true, error: null);
+
+    try {
+      final nowPlayingMovies = await _fetchNowPlayingMoviesUseCase();
+      final popularMovies = await _fetchPopularMoviesUseCase();
+      final topRatedMovies = await _fetchTopRatedMoviesUseCase();
+      final upcomingMovies = await _fetchUpcomingMoviesUseCase();
+
+      state = state.copyWith(
+        nowPlayingMovies: nowPlayingMovies,
+        popularMovies: popularMovies,
+        topRatedMovies: topRatedMovies,
+        upcomingMovies: upcomingMovies,
+        isLoading: false,
+      );
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+    }
+  }
 }
