@@ -18,8 +18,12 @@ class HomePage extends ConsumerWidget {
                 : RefreshIndicator(
                     onRefresh: () =>
                         ref.read(homeViewModelProvider.notifier).refreshData(),
-                    child: ListView(
-                      children: [],
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          
+                        ],
+                      ),
                     ),
                   ),
       ),
