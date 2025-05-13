@@ -29,9 +29,37 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<MovieDetail?> fetchMovieDetail(int id) {
-    // TODO: implement fetchMovieDetail
-    throw UnimplementedError();
+  Future<MovieDetail?> fetchMovieDetail(int id) async {
+    final response = await _dataSource.fetchMovieDetail(id);
+    if (response == null) return null;
+
+    // 제작사 로고 URL 리스트 변환
+    final productionCompanyLogos = response.productionCompanies
+        .where((company) => company.logoPath != null)
+        .map(
+          (company) => 'https://image.tmdb.org/t/p/w500${company.logoPath}',
+        )
+        .toList();
+
+    // 장르 이름만 추출
+    final genres = response.genres.map((genre) => genre.name).toList();
+
+    return MovieDetail(
+      id: response.id,
+      title: response.title,
+      overview: response.overview ?? '',
+      budget: response.budget,
+      genres: genres,
+      popularity: response.popularity,
+      posterPath: response.posterPath,
+      productionCompanyLogos: productionCompanyLogos,
+      releaseDate: response.releaseDate,
+      revenue: response.revenue,
+      runtime: response.runtime,
+      tagline: response.tagline,
+      voteAverage: response.voteAverage,
+      voteCount: response.voteCount,
+    );
   }
 
   @override
