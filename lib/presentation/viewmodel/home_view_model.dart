@@ -1,4 +1,9 @@
 import 'package:flutter_movie_app/domain/entity/movie.dart';
+import 'package:flutter_movie_app/domain/usecase/fetch_now_playing_movies_usecase.dart';
+import 'package:flutter_movie_app/domain/usecase/fetch_popular_movies_usecase.dart';
+import 'package:flutter_movie_app/domain/usecase/fetch_top_rated_movies_usecase.dart';
+import 'package:flutter_movie_app/domain/usecase/fetch_upcoming_movies_usecase.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeState {
   final List<Movie>? nowPlayingMovies;
@@ -42,5 +47,21 @@ class HomeState {
       isLoading: isLoading ?? this.isLoading,
       error: error ?? this.error,
     );
+  }
+}
+
+class HomeViewModel extends StateNotifier<HomeState> {
+  final FetchNowPlayingMoviesUseCase _fetchNowPlayingMoviesUseCase;
+  final FetchPopularMoviesUseCase _fetchPopularMoviesUseCase;
+  final FetchTopRatedMoviesUseCase _fetchTopRatedMoviesUseCase;
+  final FetchUpcomingMoviesUseCase _fetchUpcomingMoviesUseCase;
+
+  HomeViewModel(
+    this._fetchNowPlayingMoviesUseCase,
+    this._fetchPopularMoviesUseCase,
+    this._fetchTopRatedMoviesUseCase,
+    this._fetchUpcomingMoviesUseCase,
+  ) : super(HomeState.initial()) {
+    fetchAllMovies();
   }
 }
