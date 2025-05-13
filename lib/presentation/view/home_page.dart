@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/core/di/providers.dart';
 import 'package:flutter_movie_app/presentation/view/widget/home/feature_movie.dart';
+import 'package:flutter_movie_app/presentation/view/widget/home/movie_section.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
@@ -27,6 +28,21 @@ class HomePage extends ConsumerWidget {
                           if (state.popularMovies != null &&
                               state.popularMovies!.isNotEmpty)
                             FeatureMovie(movie: state.popularMovies!.first),
+                          const SizedBox(height: 20),
+                          MovieSection(
+                            title: '현재 상영중',
+                            movies: state.nowPlayingMovies ?? [],
+                          ),
+                          const SizedBox(height: 20),
+                          MovieSection(
+                            title: '평점 높은순',
+                            movies: state.topRatedMovies ?? [],
+                          ),
+                          const SizedBox(height: 20),
+                          MovieSection(
+                            title: '개봉예정',
+                            movies: state.upcomingMovies ?? [],
+                          ),
                           const SizedBox(height: 20),
                         ],
                       ),
