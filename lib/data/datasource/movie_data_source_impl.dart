@@ -8,35 +8,50 @@ class MovieDataSourceImpl implements MovieDataSource {
   final Dio _dio;
 
   MovieDataSourceImpl(this._dio);
-  
+
   @override
-  Future<MovieDetailDto?> fetchMovieDetail(int id) {
-    // TODO: implement fetchMovieDetail
-    throw UnimplementedError();
+  Future<MovieDetailDto?> fetchMovieDetail(int id) async {
+    try {
+      final response = await _dio.get(
+        'movie/$id',
+        queryParameters: {'language': 'ko-KR'},
+      );
+
+      if (response.statusCode == 200 && response.data != null) {
+        return MovieDetailDto.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } on DioException catch (e) {
+      print('Error fetching movie detail: ${e.message}');
+      return null;
+    } catch (e) {
+      print('Unexpected error in fetchMovieDetail: $e');
+      return null;
+    }
   }
-  
+
   @override
   Future<MovieResponseDto?> fetchNowPlayingMovies() {
     // TODO: implement fetchNowPlayingMovies
     throw UnimplementedError();
   }
-  
+
   @override
   Future<MovieResponseDto?> fetchPopularMovies() {
     // TODO: implement fetchPopularMovies
     throw UnimplementedError();
   }
-  
+
   @override
   Future<MovieResponseDto?> fetchTopRatedMovies() {
     // TODO: implement fetchTopRatedMovies
     throw UnimplementedError();
   }
-  
+
   @override
   Future<MovieResponseDto?> fetchUpcomingMovies() {
     // TODO: implement fetchUpcomingMovies
     throw UnimplementedError();
   }
-
 }
