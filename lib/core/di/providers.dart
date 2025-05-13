@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
 import 'package:flutter_movie_app/domain/usecase/fetch_now_playing_movies_usecase.dart';
 import 'package:flutter_movie_app/domain/usecase/fetch_popular_movies_usecase.dart';
 import 'package:flutter_movie_app/domain/usecase/fetch_top_rated_movies_usecase.dart';
+import 'package:flutter_movie_app/domain/usecase/fetch_upcoming_movies_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final movieDataSourceProvider = Provider<MovieDataSource>((ref) {
@@ -37,5 +38,12 @@ final fetchTopRatedMoviesUseCaseProvider = Provider<FetchTopRatedMoviesUseCase>(
   (ref) {
     final repository = ref.watch(movieRepositoryProvider);
     return FetchTopRatedMoviesUseCase(repository);
+  },
+);
+
+final fetchUpcomingMoviesUseCaseProvider = Provider<FetchUpcomingMoviesUseCase>(
+  (ref) {
+    final repository = ref.watch(movieRepositoryProvider);
+    return FetchUpcomingMoviesUseCase(repository);
   },
 );
