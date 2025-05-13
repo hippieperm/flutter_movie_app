@@ -102,9 +102,25 @@ class MovieDataSourceImpl implements MovieDataSource {
   }
 
   @override
-  Future<MovieResponseDto?> fetchUpcomingMovies() {
-    // TODO: implement fetchUpcomingMovies
-    throw UnimplementedError();
+  Future<MovieResponseDto?> fetchUpcomingMovies() async {
+    try {
+      final response = await _dio.get(
+        'movie/upcoming',
+        queryParameters: {'language': 'ko-KR', 'page': 1},
+      );
+
+      if (response.statusCode == 200 && response.data != null) {
+        return MovieResponseDto.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } on DioException catch (e) {
+      print('Error fetching upcoming movies: ${e.message}');
+      return null;
+    } catch (e) {
+      print('Unexpected error in fetchUpcomingMovies: $e');
+      return _createDummyMovieResponse();
+    }
   }
 
   // API가 실패할 경우 사용할 더미 데이터
