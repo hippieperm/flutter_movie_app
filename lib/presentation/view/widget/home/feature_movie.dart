@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entity/movie.dart';
 
@@ -17,6 +18,12 @@ class FeatureMovie extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: GestureDetector(
         onTap: () {},
+        child: Hero(
+          tag: heroTag,
+          child: CachedNetworkImage(
+            imageUrl: movie.fullPosterPath,
+          ),
+        ),
       ),
     );
   }
