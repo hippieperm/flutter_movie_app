@@ -22,8 +22,11 @@ class HomePage extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if(state.popularMovies != null && state.popularMovies!.isNotEmpty)
-                          
+                          if (state.popularMovies != null &&
+                              state.popularMovies!.isNotEmpty)
+                            GestureDetector(
+                              onTap: () {},
+                            )
                         ],
                       ),
                     ),
