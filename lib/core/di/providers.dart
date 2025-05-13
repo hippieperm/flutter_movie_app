@@ -67,3 +67,12 @@ final homeViewModelProvider = StateNotifierProvider<HomeViewModel, HomeState>((
     ref.watch(fetchUpcomingMoviesUseCaseProvider),
   );
 });
+
+final detailViewModelProvider = StateNotifierProvider.autoDispose
+    .family<DetailViewModel, DetailState, int>((ref, movieId) {
+  final viewModel = DetailViewModel(
+    ref.watch(fetchMovieDetailUseCaseProvider),
+  );
+  viewModel.fetchMovieDetail(movieId);
+  return viewModel;
+});
