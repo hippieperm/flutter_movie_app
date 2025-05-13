@@ -13,6 +13,11 @@ class FeatureMovie extends StatelessWidget {
   Widget build(BuildContext context) {
     final heroTag = 'main_feature_${movie.id}';
 
-    return Container();
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: GestureDetector(
+        onTap: () {},
+      ),
+    );
   }
 }
