@@ -22,6 +22,7 @@ class HomePage extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          if(state.popularMovies != null && state.popularMovies!.isNotEmpty)
                           
                         ],
                       ),
