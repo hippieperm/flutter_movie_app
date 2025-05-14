@@ -25,8 +25,8 @@ class StatItem extends StatelessWidget {
         children: [
           Text(
             value,
-            style: const TextStyle(
-              fontSize: 18,
+            style: TextStyle(
+              fontSize: label == '예산' || label == '수익' ? 11 : 18,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
