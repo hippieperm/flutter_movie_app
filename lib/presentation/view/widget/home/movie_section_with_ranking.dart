@@ -35,7 +35,10 @@ class MovieSectionWithRanking extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: movies.length > 20 ? 20 : movies.length,
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemBuilder: (context, index) {},
+            itemBuilder: (context, index) {
+              final movie = movies[index];
+              final heroTag = '${sectionId}_${movie.id}';
+            },
           ),
         )
       ],
