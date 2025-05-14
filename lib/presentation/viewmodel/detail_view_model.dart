@@ -39,6 +39,7 @@ class DetailViewModel extends StateNotifier<DetailState> {
 
     try {
       final movieDetail = await _fetchMovieDetailUseCase(id);
+      print('ViewModel에서 태그라인: "${movieDetail?.tagline}"');
       state = state.copyWith(movieDetail: movieDetail, isLoading: false);
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
