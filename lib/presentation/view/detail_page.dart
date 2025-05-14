@@ -78,6 +78,43 @@ class DetailPage extends ConsumerWidget {
                                     ),
                                   ],
                                 ),
+                                const SizedBox(height: 12),
+
+                                // 태그라인
+                                if (state.movieDetail!.tagline != null &&
+                                    state.movieDetail!.tagline!.isNotEmpty)
+                                  Text(
+                                    state.movieDetail!.tagline!,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.grey.shade300,
+                                    ),
+                                  ),
+                                const SizedBox(height: 12),
+
+                                // 러닝타임
+                                if (state.movieDetail!.runtime != null)
+                                  Text(
+                                    '러닝타임: ${state.movieDetail!.runtime} 분',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.grey.shade300,
+                                    ),
+                                  ),
+                                const SizedBox(height: 16),
+
+                                // 카테고리들
+                                Wrap(
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  children: state.movieDetail!.genres
+                                      .map((genre) => GenreChip(genre: genre))
+                                      .toList(),
+                                ),
+                                const SizedBox(height: 16),
+
+                                // 영화 설명
                               ],
                             ),
                           ),
