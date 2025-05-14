@@ -28,6 +28,16 @@ class MovieSectionWithRanking extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 10),
+        SizedBox(
+          height: 100,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: movies.length > 20 ? 20 : movies.length,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemBuilder: (context, index) {},
+          ),
+        )
       ],
     );
   }
