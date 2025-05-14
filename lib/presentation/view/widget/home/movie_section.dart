@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entity/movie.dart';
+import 'package:flutter_movie_app/presentation/view/detail_page.dart';
 
 class MovieSection extends StatelessWidget {
   final String title;
@@ -44,7 +45,17 @@ class MovieSection extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(
+                          movieId: movie.id,
+                          heroTag: heroTag,
+                        ),
+                      ),
+                    );
+                  },
                   child: Hero(
                     tag: heroTag,
                     child: ClipRRect(
