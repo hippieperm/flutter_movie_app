@@ -66,15 +66,21 @@ class MovieDetailDto {
 
   factory MovieDetailDto.fromJson(Map<String, dynamic> json) {
     try {
+      final rawTagline = json["tagline"];
+      print('DTO에서 처리 전 tagline: "$rawTagline", 타입: ${rawTagline.runtimeType}');
+
+      // 태그라인이 빈 문자열인 경우 null로 처리
+      final tagline = (rawTagline == "") ? null : rawTagline;
+      print('DTO에서 처리 후 tagline: "$tagline", 타입: ${tagline?.runtimeType}');
+
       return MovieDetailDto(
         adult: json["adult"] ?? false,
         backdropPath: json["backdrop_path"],
         belongsToCollection: json["belongs_to_collection"],
         budget: json["budget"] ?? 0,
-        genres:
-            json["genres"] != null
-                ? List<Genre>.from(json["genres"].map((x) => Genre.fromJson(x)))
-                : [],
+        genres: json["genres"] != null
+            ? List<Genre>.from(json["genres"].map((x) => Genre.fromJson(x)))
+            : [],
         homepage: json["homepage"],
         id: json["id"] ?? 0,
         imdbId: json["imdb_id"],
@@ -83,38 +89,34 @@ class MovieDetailDto {
         overview: json["overview"],
         popularity: (json["popularity"] ?? 0).toDouble(),
         posterPath: json["poster_path"],
-        productionCompanies:
-            json["production_companies"] != null
-                ? List<ProductionCompany>.from(
-                  json["production_companies"].map(
-                    (x) => ProductionCompany.fromJson(x),
-                  ),
-                )
-                : [],
-        productionCountries:
-            json["production_countries"] != null
-                ? List<ProductionCountry>.from(
-                  json["production_countries"].map(
-                    (x) => ProductionCountry.fromJson(x),
-                  ),
-                )
-                : [],
-        releaseDate:
-            json["release_date"] != null
-                ? DateTime.tryParse(json["release_date"]) ?? DateTime.now()
-                : DateTime.now(),
+        productionCompanies: json["production_companies"] != null
+            ? List<ProductionCompany>.from(
+                json["production_companies"].map(
+                  (x) => ProductionCompany.fromJson(x),
+                ),
+              )
+            : [],
+        productionCountries: json["production_countries"] != null
+            ? List<ProductionCountry>.from(
+                json["production_countries"].map(
+                  (x) => ProductionCountry.fromJson(x),
+                ),
+              )
+            : [],
+        releaseDate: json["release_date"] != null
+            ? DateTime.tryParse(json["release_date"]) ?? DateTime.now()
+            : DateTime.now(),
         revenue: json["revenue"] ?? 0,
         runtime: json["runtime"],
-        spokenLanguages:
-            json["spoken_languages"] != null
-                ? List<SpokenLanguage>.from(
-                  json["spoken_languages"].map(
-                    (x) => SpokenLanguage.fromJson(x),
-                  ),
-                )
-                : [],
+        spokenLanguages: json["spoken_languages"] != null
+            ? List<SpokenLanguage>.from(
+                json["spoken_languages"].map(
+                  (x) => SpokenLanguage.fromJson(x),
+                ),
+              )
+            : [],
         status: json["status"] ?? '',
-        tagline: json["tagline"],
+        tagline: tagline,
         title: json["title"] ?? '',
         video: json["video"] ?? false,
         voteAverage: (json["vote_average"] ?? 0).toDouble(),
@@ -147,39 +149,39 @@ class MovieDetailDto {
   }
 
   Map<String, dynamic> toJson() => {
-    "adult": adult,
-    "backdrop_path": backdropPath,
-    "belongs_to_collection": belongsToCollection,
-    "budget": budget,
-    "genres": List<dynamic>.from(genres.map((x) => x.toJson())),
-    "homepage": homepage,
-    "id": id,
-    "imdb_id": imdbId,
-    "original_language": originalLanguage,
-    "original_title": originalTitle,
-    "overview": overview,
-    "popularity": popularity,
-    "poster_path": posterPath,
-    "production_companies": List<dynamic>.from(
-      productionCompanies.map((x) => x.toJson()),
-    ),
-    "production_countries": List<dynamic>.from(
-      productionCountries.map((x) => x.toJson()),
-    ),
-    "release_date":
-        "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
-    "revenue": revenue,
-    "runtime": runtime,
-    "spoken_languages": List<dynamic>.from(
-      spokenLanguages.map((x) => x.toJson()),
-    ),
-    "status": status,
-    "tagline": tagline,
-    "title": title,
-    "video": video,
-    "vote_average": voteAverage,
-    "vote_count": voteCount,
-  };
+        "adult": adult,
+        "backdrop_path": backdropPath,
+        "belongs_to_collection": belongsToCollection,
+        "budget": budget,
+        "genres": List<dynamic>.from(genres.map((x) => x.toJson())),
+        "homepage": homepage,
+        "id": id,
+        "imdb_id": imdbId,
+        "original_language": originalLanguage,
+        "original_title": originalTitle,
+        "overview": overview,
+        "popularity": popularity,
+        "poster_path": posterPath,
+        "production_companies": List<dynamic>.from(
+          productionCompanies.map((x) => x.toJson()),
+        ),
+        "production_countries": List<dynamic>.from(
+          productionCountries.map((x) => x.toJson()),
+        ),
+        "release_date":
+            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+        "revenue": revenue,
+        "runtime": runtime,
+        "spoken_languages": List<dynamic>.from(
+          spokenLanguages.map((x) => x.toJson()),
+        ),
+        "status": status,
+        "tagline": tagline,
+        "title": title,
+        "video": video,
+        "vote_average": voteAverage,
+        "vote_count": voteCount,
+      };
 }
 
 class Genre {
@@ -226,11 +228,11 @@ class ProductionCompany {
   }
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "logo_path": logoPath,
-    "name": name,
-    "origin_country": originCountry,
-  };
+        "id": id,
+        "logo_path": logoPath,
+        "name": name,
+        "origin_country": originCountry,
+      };
 }
 
 class ProductionCountry {
@@ -277,8 +279,8 @@ class SpokenLanguage {
   }
 
   Map<String, dynamic> toJson() => {
-    "english_name": englishName,
-    "iso_639_1": iso6391,
-    "name": name,
-  };
+        "english_name": englishName,
+        "iso_639_1": iso6391,
+        "name": name,
+      };
 }
