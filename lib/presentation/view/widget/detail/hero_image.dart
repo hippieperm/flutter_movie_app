@@ -17,21 +17,17 @@ class HeroImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: heroTag ?? 'movie_$movieId',
-      child: _buildImageWidget(imageUrl),
-    );
-  }
-
-  Widget _buildImageWidget(String imageUrl) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      fit: BoxFit.cover,
-      placeholder: (context, url) => Container(
-        color: Colors.grey.shade800,
-        child: const Center(child: CircularProgressIndicator()),
-      ),
-      errorWidget: (context, url, error) => Container(
-        color: Colors.grey.shade800,
-        child: const Center(child: Icon(Icons.error)),
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        fit: BoxFit.cover,
+        placeholder: (context, url) => Container(
+          color: Colors.grey.shade800,
+          child: const Center(child: CircularProgressIndicator()),
+        ),
+        errorWidget: (context, url, error) => Container(
+          color: Colors.grey.shade800,
+          child: const Center(child: Icon(Icons.error)),
+        ),
       ),
     );
   }
