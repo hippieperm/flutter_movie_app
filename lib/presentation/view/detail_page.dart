@@ -135,6 +135,41 @@ class DetailPage extends ConsumerWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 12),
+                                SizedBox(
+                                  height: 100,
+                                  child: ListView(
+                                    scrollDirection: Axis.horizontal,
+                                    children: [
+                                      StatItem(
+                                        label: '평점',
+                                        value: state.movieDetail!.voteAverage
+                                            .toStringAsFixed(1),
+                                      ),
+                                      StatItem(
+                                        label: '평점투표수',
+                                        value: NumberFormat(
+                                          '#,###',
+                                        ).format(state.movieDetail!.voteCount),
+                                      ),
+                                      StatItem(
+                                        label: '인기점수',
+                                        value: NumberFormat(
+                                          '#,###.#',
+                                        ).format(state.movieDetail!.popularity),
+                                      ),
+                                      StatItem(
+                                        label: '예산',
+                                        value:
+                                            '\$${NumberFormat('#,###').format(state.movieDetail!.budget)}',
+                                      ),
+                                      StatItem(
+                                        label: '수익',
+                                        value:
+                                            '\$${NumberFormat('#,###').format(state.movieDetail!.revenue)}',
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ),
