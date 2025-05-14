@@ -115,6 +115,26 @@ class DetailPage extends ConsumerWidget {
                                 const SizedBox(height: 16),
 
                                 // 영화 설명
+                                Text(
+                                  state.movieDetail!.overview,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    height: 1.5,
+                                  ),
+                                ),
+                                const SizedBox(height: 24),
+
+                                // 영화 통계 정보 (가로 스크롤)
+                                const Text(
+                                  '흥행정보',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
                               ],
                             ),
                           ),
