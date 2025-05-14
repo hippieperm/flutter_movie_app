@@ -25,7 +25,7 @@ class HomePage extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           if (state.popularMovies != null &&
                               state.popularMovies!.isNotEmpty)
                             FeatureMovie(movie: state.popularMovies!.first),

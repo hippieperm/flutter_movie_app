@@ -24,14 +24,14 @@ class MovieSectionWithRanking extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         SizedBox(
           height: 180,
           child: ListView.builder(
@@ -43,7 +43,7 @@ class MovieSectionWithRanking extends StatelessWidget {
               final heroTag = '${sectionId}_${movie.id}';
 
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(

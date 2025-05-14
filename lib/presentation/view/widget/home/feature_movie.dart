@@ -39,7 +39,7 @@ class FeatureMovie extends StatelessWidget {
             placeholder: (context, url) => Container(
               height: 450,
               color: Colors.grey.shade800,
-              child: Center(
+              child: const Center(
                 child: CircularProgressIndicator(),
               ),
             ),
