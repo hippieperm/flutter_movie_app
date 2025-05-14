@@ -18,19 +18,13 @@ class MovieDataSourceImpl implements MovieDataSource {
       );
 
       if (response.statusCode == 200 && response.data != null) {
-        print('Movie Detail API 응답: ${response.data['tagline']}');
-        print('태그라인 타입: ${response.data['tagline'].runtimeType}');
-        print('태그라인 길이: ${response.data['tagline']?.toString().length}');
-        print('태그라인 빈 문자열 확인: ${response.data['tagline'] == ""}');
         return MovieDetailDto.fromJson(response.data);
       } else {
         return null;
       }
     } on DioException catch (e) {
-      print('Error fetching movie detail: ${e.message}');
       return null;
     } catch (e) {
-      print('Unexpected error in fetchMovieDetail: $e');
       return null;
     }
   }
@@ -44,19 +38,13 @@ class MovieDataSourceImpl implements MovieDataSource {
       );
 
       if (response.statusCode == 200 && response.data != null) {
-        print('API 응답 데이터 구조: ${response.data.runtimeType}');
         return MovieResponseDto.fromJson(response.data);
       } else {
-        print('API 응답이 비어있거나 성공적이지 않습니다: ${response.statusCode}');
         return null;
       }
     } on DioException catch (e) {
-      print('Error fetching now playing movies: ${e.message}');
-      print('Status code: ${e.response?.statusCode}');
-      print('Response data: ${e.response?.data}');
       return null;
     } catch (e) {
-      print('Unexpected error in fetchNowPlayingMovies: $e');
       return _createDummyMovieResponse();
     }
   }
@@ -75,10 +63,8 @@ class MovieDataSourceImpl implements MovieDataSource {
         return null;
       }
     } on DioException catch (e) {
-      print('Error fetching popular movies: ${e.message}');
       return null;
     } catch (e) {
-      print('Unexpected error in fetchPopularMovies: $e');
       return _createDummyMovieResponse();
     }
   }
@@ -97,10 +83,8 @@ class MovieDataSourceImpl implements MovieDataSource {
         return null;
       }
     } on DioException catch (e) {
-      print('Error fetching top rated movies: ${e.message}');
       return null;
     } catch (e) {
-      print('Unexpected error in fetchTopRatedMovies: $e');
       return _createDummyMovieResponse();
     }
   }
@@ -119,10 +103,8 @@ class MovieDataSourceImpl implements MovieDataSource {
         return null;
       }
     } on DioException catch (e) {
-      print('Error fetching upcoming movies: ${e.message}');
       return null;
     } catch (e) {
-      print('Unexpected error in fetchUpcomingMovies: $e');
       return _createDummyMovieResponse();
     }
   }

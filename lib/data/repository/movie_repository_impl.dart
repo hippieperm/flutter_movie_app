@@ -33,9 +33,6 @@ class MovieRepositoryImpl implements MovieRepository {
     final response = await _dataSource.fetchMovieDetail(id);
     if (response == null) return null;
 
-    // 태그라인 확인
-    print('Repository에서 태그라인: "${response.tagline}"');
-
     // 제작사 로고 URL 리스트 변환
     final productionCompanyLogos = response.productionCompanies
         .where((company) => company.logoPath != null)

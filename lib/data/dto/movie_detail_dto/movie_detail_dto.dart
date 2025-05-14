@@ -67,11 +67,9 @@ class MovieDetailDto {
   factory MovieDetailDto.fromJson(Map<String, dynamic> json) {
     try {
       final rawTagline = json["tagline"];
-      print('DTO에서 처리 전 tagline: "$rawTagline", 타입: ${rawTagline.runtimeType}');
 
       // 태그라인이 빈 문자열인 경우 null로 처리
       final tagline = (rawTagline == "") ? null : rawTagline;
-      print('DTO에서 처리 후 tagline: "$tagline", 타입: ${tagline?.runtimeType}');
 
       return MovieDetailDto(
         adult: json["adult"] ?? false,
@@ -123,7 +121,6 @@ class MovieDetailDto {
         voteCount: json["vote_count"] ?? 0,
       );
     } catch (e) {
-      print('MovieDetailDto 파싱 중 오류: $e');
       // 최소한의 데이터로 객체 생성
       return MovieDetailDto(
         adult: false,

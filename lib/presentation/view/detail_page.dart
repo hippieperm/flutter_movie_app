@@ -100,10 +100,6 @@ class DetailPage extends ConsumerWidget {
                         // 태그라인
                         Builder(builder: (context) {
                           final tagline = state.movieDetail!.tagline;
-                          print('DetailPage에서 태그라인: "$tagline"');
-                          print('태그라인 null 여부: ${tagline == null}');
-                          print('태그라인 빈 문자열 여부: ${tagline == ""}');
-                          print('태그라인 길이: ${tagline?.length}');
 
                           if (tagline != null && tagline.trim().isNotEmpty) {
                             return Column(

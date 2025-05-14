@@ -27,18 +27,15 @@ class MovieResponseDto {
     try {
       return MovieResponseDto(
         page: json["page"] ?? 1,
-        results:
-            json["results"] != null
-                ? List<Result>.from(
-                  json["results"].map((x) => Result.fromJson(x)),
-                )
-                : [],
+        results: json["results"] != null
+            ? List<Result>.from(
+                json["results"].map((x) => Result.fromJson(x)),
+              )
+            : [],
         totalPages: json["total_pages"] ?? 1,
         totalResults: json["total_results"] ?? 0,
       );
     } catch (e) {
-      print('MovieResponseDto 파싱 중 오류: $e');
-      // 최소한의 데이터로 객체 생성
       return MovieResponseDto(
         page: 1,
         results: [],
@@ -49,11 +46,11 @@ class MovieResponseDto {
   }
 
   Map<String, dynamic> toJson() => {
-    "page": page,
-    "results": List<dynamic>.from(results.map((x) => x.toJson())),
-    "total_pages": totalPages,
-    "total_results": totalResults,
-  };
+        "page": page,
+        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+        "total_pages": totalPages,
+        "total_results": totalResults,
+      };
 }
 
 class Result {
@@ -94,28 +91,24 @@ class Result {
       return Result(
         adult: json["adult"] ?? false,
         backdropPath: json["backdrop_path"],
-        genreIds:
-            json["genre_ids"] != null
-                ? List<int>.from(json["genre_ids"].map((x) => x))
-                : [],
+        genreIds: json["genre_ids"] != null
+            ? List<int>.from(json["genre_ids"].map((x) => x))
+            : [],
         id: json["id"] ?? 0,
         originalLanguage: json["original_language"] ?? '',
         originalTitle: json["original_title"] ?? '',
         overview: json["overview"] ?? '',
         popularity: (json["popularity"] ?? 0).toDouble(),
         posterPath: json["poster_path"],
-        releaseDate:
-            json["release_date"] == null || json["release_date"] == ""
-                ? null
-                : DateTime.tryParse(json["release_date"]),
+        releaseDate: json["release_date"] == null || json["release_date"] == ""
+            ? null
+            : DateTime.tryParse(json["release_date"]),
         title: json["title"] ?? '',
         video: json["video"] ?? false,
         voteAverage: (json["vote_average"] ?? 0).toDouble(),
         voteCount: json["vote_count"] ?? 0,
       );
     } catch (e) {
-      print('Result 파싱 중 오류: $e');
-      // 기본 데이터로 객체 생성
       return Result(
         adult: false,
         genreIds: [],
@@ -133,22 +126,21 @@ class Result {
   }
 
   Map<String, dynamic> toJson() => {
-    "adult": adult,
-    "backdrop_path": backdropPath,
-    "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
-    "id": id,
-    "original_language": originalLanguage,
-    "original_title": originalTitle,
-    "overview": overview,
-    "popularity": popularity,
-    "poster_path": posterPath,
-    "release_date":
-        releaseDate == null
+        "adult": adult,
+        "backdrop_path": backdropPath,
+        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
+        "id": id,
+        "original_language": originalLanguage,
+        "original_title": originalTitle,
+        "overview": overview,
+        "popularity": popularity,
+        "poster_path": posterPath,
+        "release_date": releaseDate == null
             ? null
             : "${releaseDate!.year.toString().padLeft(4, '0')}-${releaseDate!.month.toString().padLeft(2, '0')}-${releaseDate!.day.toString().padLeft(2, '0')}",
-    "title": title,
-    "video": video,
-    "vote_average": voteAverage,
-    "vote_count": voteCount,
-  };
+        "title": title,
+        "video": video,
+        "vote_average": voteAverage,
+        "vote_count": voteCount,
+      };
 }
