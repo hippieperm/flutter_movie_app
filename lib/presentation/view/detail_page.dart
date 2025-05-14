@@ -98,17 +98,31 @@ class DetailPage extends ConsumerWidget {
                         const SizedBox(height: 12),
 
                         // 태그라인
-                        if (state.movieDetail!.tagline != null &&
-                            state.movieDetail!.tagline!.isNotEmpty)
-                          Text(
-                            state.movieDetail!.tagline!,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.grey.shade300,
-                            ),
-                          ),
-                        const SizedBox(height: 12),
+                        Builder(builder: (context) {
+                          final tagline = state.movieDetail!.tagline;
+                          print('DetailPage에서 태그라인: "$tagline"');
+                          print('태그라인 null 여부: ${tagline == null}');
+                          print('태그라인 빈 문자열 여부: ${tagline == ""}');
+                          print('태그라인 길이: ${tagline?.length}');
+
+                          if (tagline != null && tagline.trim().isNotEmpty) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tagline,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.blue.shade300,
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
+                              ],
+                            );
+                          }
+                          return const SizedBox.shrink();
+                        }),
 
                         // 러닝타임
                         if (state.movieDetail!.runtime != null)
