@@ -38,6 +38,13 @@ class MovieSectionWithRanking extends StatelessWidget {
             itemBuilder: (context, index) {
               final movie = movies[index];
               final heroTag = '${sectionId}_${movie.id}';
+
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4),
+                child: GestureDetector(
+                  onTap: () {},
+                ),
+              );
             },
           ),
         )
