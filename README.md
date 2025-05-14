@@ -22,8 +22,9 @@ Flutter Movie App은 TMDB API를 활용한 클린 아키텍처 기반 영화 정
   <tr>
     <td><img src="https://github.com/user-attachments/assets/1f11f8fd-7291-4d55-9563-0c55838a41aa" alt="홈 화면"/></td>
     <td><img src="https://github.com/user-attachments/assets/28dbf124-182e-4afe-bcd3-4087281e8326" alt="영화 상세"/></td>
-    <td><img src="https://github.com/user-attachments/assets/886890c1-aec4-4d8e-be02-09e77b10d8f0" alt="카테고리"/></td>
-  </tr>
+    <td><img src="https://github.com/user-attachments/assets/a672a473-939a-460c-b804-cbfff72643f1" alt="카테고리"/></td>
+
+
 </table>
 
 
