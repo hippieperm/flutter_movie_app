@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/presentation/view/detail_page.dart';
+import '../../../../domain/entity/movie.dart';
+import '../../detail_page.dart';
 
 class MovieSection extends StatelessWidget {
   final String title;

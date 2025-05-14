@@ -1,5 +1,5 @@
-import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_movie_detail_usecase.dart';
+import '../../domain/entity/movie_detail.dart';
+import '../../domain/usecase/fetch_movie_detail_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DetailState {

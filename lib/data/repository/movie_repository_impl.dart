@@ -1,4 +1,4 @@
-import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
+import '../../domain/entity/movie_detail.dart';
 
 import '../datasource/movie_data_source.dart';
 import '../../domain/entity/movie.dart';

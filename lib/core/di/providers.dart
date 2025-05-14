@@ -1,15 +1,15 @@
-import 'package:flutter_movie_app/core/network/dio_provider.dart';
-import 'package:flutter_movie_app/data/datasource/movie_data_source.dart';
-import 'package:flutter_movie_app/data/datasource/movie_data_source_impl.dart';
-import 'package:flutter_movie_app/data/repository/movie_repository_impl.dart';
-import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_movie_detail_usecase.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_now_playing_movies_usecase.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_popular_movies_usecase.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_top_rated_movies_usecase.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_upcoming_movies_usecase.dart';
-import 'package:flutter_movie_app/presentation/viewmodel/detail_view_model.dart';
-import 'package:flutter_movie_app/presentation/viewmodel/home_view_model.dart';
+import '../network/dio_provider.dart';
+import '../../data/datasource/movie_data_source.dart';
+import '../../data/datasource/movie_data_source_impl.dart';
+import '../../data/repository/movie_repository_impl.dart';
+import '../../domain/repository/movie_repository.dart';
+import '../../domain/usecase/fetch_movie_detail_usecase.dart';
+import '../../domain/usecase/fetch_now_playing_movies_usecase.dart';
+import '../../domain/usecase/fetch_popular_movies_usecase.dart';
+import '../../domain/usecase/fetch_top_rated_movies_usecase.dart';
+import '../../domain/usecase/fetch_upcoming_movies_usecase.dart';
+import '../../presentation/viewmodel/detail_view_model.dart';
+import '../../presentation/viewmodel/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final movieDataSourceProvider = Provider<MovieDataSource>((ref) {

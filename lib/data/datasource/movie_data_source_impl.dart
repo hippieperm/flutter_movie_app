@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'movie_data_source.dart';
+
 import '../dto/movie_detail_dto/movie_detail_dto.dart';
 import '../dto/movie_response_dto/movie_response_dto.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'movie_data_source.dart';
 
 class MovieDataSourceImpl implements MovieDataSource {
   final Dio _dio;

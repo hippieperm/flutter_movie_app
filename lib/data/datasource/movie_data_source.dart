@@ -1,5 +1,5 @@
-import '../dto/movie_response_dto/movie_response_dto.dart';
 import '../dto/movie_detail_dto/movie_detail_dto.dart';
+import '../dto/movie_response_dto/movie_response_dto.dart';
 
 abstract interface class MovieDataSource {
   Future<MovieResponseDto?> fetchNowPlayingMovies();
