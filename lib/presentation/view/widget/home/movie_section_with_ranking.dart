@@ -43,6 +43,11 @@ class MovieSectionWithRanking extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 4),
                 child: GestureDetector(
                   onTap: () {},
+                  child: Stack(
+                    children: [
+                      
+                    ],
+                  ),
                 ),
               );
             },
