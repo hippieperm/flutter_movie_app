@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/core/di/providers.dart';
 import 'package:flutter_movie_app/presentation/view/widget/home/feature_movie.dart';
 import 'package:flutter_movie_app/presentation/view/widget/home/movie_section.dart';
+import 'package:flutter_movie_app/presentation/view/widget/home/movie_section_with_ranking.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
@@ -32,6 +33,11 @@ class HomePage extends ConsumerWidget {
                           MovieSection(
                             title: '현재 상영중',
                             movies: state.nowPlayingMovies ?? [],
+                          ),
+                          const SizedBox(height: 20),
+                          MovieSectionWithRanking(
+                            title: '인기순',
+                            movies: state.popularMovies ?? [],
                           ),
                           const SizedBox(height: 20),
                           MovieSection(
