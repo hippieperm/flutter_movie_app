@@ -14,7 +14,7 @@ class MovieDataSourceImpl implements MovieDataSource {
     try {
       final response = await _dio.get(
         'movie/$id',
-        queryParameters: {'language': 'eng'},
+        queryParameters: {'language': 'ko-KR'},
       );
 
       if (response.statusCode == 200 && response.data != null) {
