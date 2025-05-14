@@ -14,10 +14,14 @@ class MovieDataSourceImpl implements MovieDataSource {
     try {
       final response = await _dio.get(
         'movie/$id',
-        queryParameters: {'language': 'ko-KR'},
+        queryParameters: {'language': 'eng'},
       );
 
       if (response.statusCode == 200 && response.data != null) {
+        print('Movie Detail API 응답: ${response.data['tagline']}');
+        print('태그라인 타입: ${response.data['tagline'].runtimeType}');
+        print('태그라인 길이: ${response.data['tagline']?.toString().length}');
+        print('태그라인 빈 문자열 확인: ${response.data['tagline'] == ""}');
         return MovieDetailDto.fromJson(response.data);
       } else {
         return null;
