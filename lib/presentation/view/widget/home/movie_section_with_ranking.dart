@@ -17,6 +17,7 @@ class MovieSectionWithRanking extends StatelessWidget {
     const String sectionId = "popular_ranking";
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -75,8 +76,8 @@ class MovieSectionWithRanking extends StatelessWidget {
                         left: 8,
                         bottom: 8,
                         child: Container(
-                          width: 30,
-                          height: 30,
+                          width: index >= 9 ? 60 : 30,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: Colors.black.withOpacity(0.7),
                             borderRadius: BorderRadius.circular(15),
@@ -87,7 +88,7 @@ class MovieSectionWithRanking extends StatelessWidget {
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                                fontSize: 36,
                               ),
                             ),
                           ),
