@@ -1,29 +1,3 @@
-
-Read file: lib/main.dart
-
-Ran tool
-
-Ran tool
-
-Ran tool
-
-Ran tool
-
-Ran tool
-
-Ran tool
-
-Read file: lib/domain/entity/movie.dart
-
-Read file: lib/presentation/view/home_page.dart
-
-Read file: lib/core/di/providers.dart
-
-Read file: lib/core/network/dio_provider.dart
-
-Ran tool
-
-Read file: /Volumes/55D/x_code/flutter_movie_app/pubspec.yaml
 # 🎬 Flutter Movie App
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?style=for-the-badge&logo=flutter&logoColor=white)
@@ -46,11 +20,12 @@ Flutter Movie App은 TMDB API를 활용한 클린 아키텍처 기반 영화 정
 
 <table>
   <tr>
-    <td><img src="https://via.placeholder.com/200x400?text=Home+Screen" alt="홈 화면"/></td>
-    <td><img src="https://via.placeholder.com/200x400?text=Movie+Detail" alt="영화 상세"/></td>
-    <td><img src="https://via.placeholder.com/200x400?text=Categories" alt="카테고리"/></td>
+    <td><img src="https://github.com/user-attachments/assets/1f11f8fd-7291-4d55-9563-0c55838a41aa" alt="홈 화면"/></td>
+    <td><img src="https://github.com/user-attachments/assets/28dbf124-182e-4afe-bcd3-4087281e8326" alt="영화 상세"/></td>
+    <td><img src="https://github.com/user-attachments/assets/886890c1-aec4-4d8e-be02-09e77b10d8f0" alt="카테고리"/></td>
   </tr>
 </table>
+
 
 ## 🏗️ 아키텍처
 
