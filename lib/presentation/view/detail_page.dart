@@ -170,6 +170,35 @@ class DetailPage extends ConsumerWidget {
                                     ],
                                   ),
                                 ),
+                                const SizedBox(height: 24),
+
+                                // 제작사 로고
+                                if (state.movieDetail!.productionCompanyLogos
+                                    .isNotEmpty) ...[
+                                  const Text(
+                                    '제작사',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  SizedBox(
+                                    height: 60,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: state.movieDetail!
+                                          .productionCompanyLogos.length,
+                                      itemBuilder: (context, index) {
+                                        return ProductionCompanyLogo(
+                                          logoUrl: state.movieDetail!
+                                              .productionCompanyLogos[index],
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
                               ],
                             ),
                           ),
