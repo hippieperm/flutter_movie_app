@@ -26,7 +26,7 @@ class StatItem extends StatelessWidget {
           Text(
             value,
             style: TextStyle(
-              fontSize: label == '예산' || label == '수익' ? 11 : 18,
+              fontSize: value.length > 6 ? 11 : 18,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
